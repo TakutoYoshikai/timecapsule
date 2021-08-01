@@ -47,7 +47,7 @@ fn save(filename: &str, data: Vec<u8>) {
 
 fn is_time_to_open() -> bool {
     let now: DateTime<Local> = Local::now();
-    let time_to_open = DateTime::parse_from_str(TIME, "%Y/%m/%d %H:%M:%S").unwrap();
+    let time_to_open = NaiveDateTime::parse_from_str(TIME, "%Y/%m/%d %H:%M:%S").unwrap();
     return now.timestamp() < time_to_open.timestamp();
 }
 fn main() {
