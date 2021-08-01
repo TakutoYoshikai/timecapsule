@@ -1,2 +1,2 @@
 ";
-const TIME: &str = "
+const KEY: &str = "
