@@ -7,14 +7,12 @@ use aes::Aes256;
 use block_modes::{BlockMode, Cbc};
 use block_modes::block_padding::Pkcs7;
 use rand::seq::SliceRandom;
-use chrono::{DateTime, Local};
+use chrono::{NaiveDateTime, DateTime, Local};
 
 type AesCbc = Cbc<Aes256, Pkcs7>;
 const ENCRYPTED_TEXT: &str = "";
-const KEY: &str = "hcUaqXDMsoULWdylZjUpBTWWoD6KX3Dz
-";
-const TIME: &str = "2021/8/1 12:46:00
-";
+const KEY: &str = "";
+const TIME: &str = "";
 
 const BASE_STR: &str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
@@ -63,8 +61,8 @@ fn save(filename: &str, data: Vec<u8>) {
 
 fn is_time_to_open() -> bool {
     let now: DateTime<Local> = Local::now();
-    let time_to_open = DateTime::parse_from_str(TIME, "%Y/%m/%d %H:%M:%S").unwrap();
-    return now.timestamp() < time_to_open.timestamp();
+    let time_to_open = NaiveDateTime::parse_from_str(TIME, "%Y-%m-%d-%H-%M-%S").unwrap();
+    return now.timestamp() > time_to_open.timestamp();
 }
 fn main() {
     let args: Vec<String> = env::args().collect();
