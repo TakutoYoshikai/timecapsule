@@ -11,8 +11,10 @@ use chrono::{DateTime, Local};
 
 type AesCbc = Cbc<Aes256, Pkcs7>;
 const ENCRYPTED_TEXT: &str = "";
-const KEY: &str = "";
-const TIME: &str = "";
+const KEY: &str = "hcUaqXDMsoULWdylZjUpBTWWoD6KX3Dz
+";
+const TIME: &str = "2021/8/1 12:46:00
+";
 
 const BASE_STR: &str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
@@ -78,6 +80,7 @@ fn main() {
         return;
     }
     let target: &str = &args[1];
+    let key: &str = &args[2];
     let data = read_file(target);
-    print!("{}", encrypt(KEY, &data.unwrap()));
+    print!("{}", encrypt(key, &data.unwrap()));
 }

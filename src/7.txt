@@ -64,6 +64,7 @@ fn main() {
         return;
     }
     let target: &str = &args[1];
+    let key: &str = &args[2];
     let data = read_file(target);
-    print!("{}", encrypt(KEY, &data.unwrap()));
+    print!("{}", encrypt(key, &data.unwrap()));
 }
