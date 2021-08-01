@@ -7,7 +7,7 @@ use aes::Aes256;
 use block_modes::{BlockMode, Cbc};
 use block_modes::block_padding::Pkcs7;
 use rand::seq::SliceRandom;
-use chrono::{DateTime, Local};
+use chrono::{DateTime};
 
 type AesCbc = Cbc<Aes256, Pkcs7>;
 const ENCRYPTED_TEXT: &str = "
