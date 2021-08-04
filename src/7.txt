@@ -69,6 +69,10 @@ fn main() {
         save(&path.into_os_string().into_string().unwrap(), decrypted);
         return;
     }
+    if &args[1] == "time" {
+      println!("{}", TIME);
+      return;
+    }
     let target: &str = &args[1];
     let key: &str = &args[2];
     let data = read_file(target);
